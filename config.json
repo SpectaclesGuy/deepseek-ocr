@@ -1,16 +1,23 @@
 {
-  "_name_or_path": "deepseek-ai/DeepSeek-OCR",
-  "model_type": "deepseekocr",
-  "candidate_resolutions": [[1024, 1024]],
-  "global_view_pos": "head",
-  "architectures": ["DeepseekOCRForCausalLM"],
+ "_name_or_path": "deepseek-ai/DeepSeek-OCR",
+  "candidate_resolutions": [
+  [
+   1024,
+   1024
+  ]
+ ],
+ "global_view_pos": "head",
+  "architectures": [
+      "DeepseekOCRForCausalLM"
+    ],
   "auto_map": {
-  "AutoConfig": "configuration_deepseekocr.DeepseekOCRConfig",
-  "AutoModel": "modeling_deepseekocr.DeepseekOCRForCausalLM",
-  "AutoModelForCausalLM": "modeling_deepseekocr.DeepseekOCRForCausalLM"
-},
-  "language_config": {
-    "architectures": ["DeepseekV2ForCausalLM"],
+    "AutoConfig": "modeling_deepseekocr.DeepseekOCRConfig",
+    "AutoModel": "modeling_deepseekocr.DeepseekOCRForCausalLM"
+  },
+ "language_config": {
+    "architectures": [
+      "DeepseekV2ForCausalLM"
+    ],
     "auto_map": {
       "AutoConfig": "configuration_deepseekv2.DeepseekV2Config",
       "AutoModel": "modeling_deepseek.DeepseekV2Model",
@@ -43,37 +50,46 @@
     "v_head_dim": 0,
     "vocab_size": 129280
   },
-  "projector_config": {
-    "input_dim": 2048,
-    "model_type": "mlp_projector",
-    "n_embed": 1280,
-    "projector_type": "linear"
-  },
-  "tile_tag": "2D",
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.3",
-  "vision_config": {
-    "image_size": 1024,
-    "mlp_ratio": 3.7362,
-    "model_name": "deeplip_b_l",
-    "model_type": "vision",
-    "width": {
-      "clip-l-14-224": {
-        "heads": 16,
-        "image_size": 224,
-        "layers": 24,
-        "patch_size": 14,
-        "width": 1024
-      },
-      "sam_vit_b": {
-        "downsample_channels": [512, 1024],
-        "global_attn_indexes": [2, 5, 8, 11],
-        "heads": 12,
-        "layers": 12,
-        "width": 768
-      }
-    }
-  },
+ "model_type": "deepseek_vl_v2",
+ "projector_config": {
+  "input_dim": 2048,
+  "model_type": "mlp_projector",
+  "n_embed": 1280,
+  "projector_type": "linear"
+ },
+ "tile_tag": "2D",
+ "torch_dtype": "bfloat16",
+ "transformers_version": "4.46.3",
+ "vision_config": {
+  "image_size": 1024,
+  "mlp_ratio": 3.7362,
+  "model_name": "deeplip_b_l",
+  "model_type": "vision",
+  "width": {
+   "clip-l-14-224": {
+    "heads": 16,
+    "image_size": 224,
+    "layers": 24,
+    "patch_size": 14,
+    "width": 1024
+   },
+   "sam_vit_b": {
+    "downsample_channels": [
+     512,
+     1024
+    ],
+    "global_attn_indexes": [
+     2,
+     5,
+     8,
+     11
+    ],
+    "heads": 12,
+    "layers": 12,
+    "width": 768
+   }
+  }
+ },
   "bos_token_id": 0,
   "eos_token_id": 1,
   "first_k_dense_replace": 1,

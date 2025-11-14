@@ -1,4 +1,5 @@
 from .modeling_deepseekv2 import DeepseekV2Model, DeepseekV2ForCausalLM
+from .configuration_deepseekocr import DeepseekOCRConfig
 from .configuration_deepseek_v2 import DeepseekV2Config
 from transformers.modeling_outputs import BaseModelOutputWithPast, CausalLMOutputWithPast
 from typing import List, Optional, Tuple, Union
@@ -347,9 +348,6 @@ class NoEOSTextStreamer(TextStreamer):
         text = text.replace(eos_text, "\n")
         print(text, flush=True, end="")
 
-
-class DeepseekOCRConfig(DeepseekV2Config):
-    model_type = "DeepseekOCR"
 
 class DeepseekOCRModel(DeepseekV2Model):
     config_class = DeepseekOCRConfig

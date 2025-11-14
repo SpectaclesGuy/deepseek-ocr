@@ -34,10 +34,17 @@ from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
 from transformers.activations import ACT2FN
 from transformers.cache_utils import Cache, DynamicCache
 from transformers.modeling_attn_mask_utils import _prepare_4d_causal_attention_mask
-from transformers.models.llama.modeling_llama import (
-    LlamaAttention,
-    LlamaFlashAttention2
-)
+try:
+    from transformers.models.llama.modeling_llama import (
+        LlamaFlashAttention2,
+        LlamaSdpaAttention,
+        LlamaAttention,
+    )
+except ImportError:
+    # Fallback for CPU or environments without flash-attn
+    from transformers.models.llama.modeling_llama import LlamaAttention
+    LlamaFlashAttention2 = None
+    LlamaSdpaAttention = LlamaAttention
 from transformers.modeling_outputs import (
     BaseModelOutputWithPast,
     CausalLMOutputWithPast,
