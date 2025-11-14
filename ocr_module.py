@@ -52,7 +52,12 @@ def run_ocr(pdf_path: str, output_dir: str = "ocr_outputs") -> tuple[str, str]:
 
     # -------------------- Load Model --------------------
     MODEL_ID = "deepseek-ocr-model"  # or HF model repo path
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_ID, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(
+    MODEL_ID,
+    trust_remote_code=True,
+    use_fast=False
+)
+
     model = AutoModel.from_pretrained(
         MODEL_ID,
         trust_remote_code=True,
