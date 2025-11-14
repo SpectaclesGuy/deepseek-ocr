@@ -42,4 +42,4 @@ iface = gr.Interface(
     description="Upload a PDF and extract Hindi/Multilingual text using the DeepSeek OCR model. Automatically detects device (GPU/CPU).",
 )
 
-iface.launch()
+iface.launch(server_name="0.0.0.0", server_port=7860, share=True)
