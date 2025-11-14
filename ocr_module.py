@@ -51,7 +51,7 @@ def run_ocr(pdf_path: str, output_dir: str = "ocr_outputs") -> tuple[str, str]:
     print(f"[INFO] Device: {device} | Torch dtype: {dtype}")
 
     # -------------------- Load Model --------------------
-    MODEL_ID = "./deepseek-ocr-model"  # or HF model repo path
+    MODEL_ID = "deepseek-ai/DeepSeek-OCR"  # or HF model repo path
     tokenizer = AutoTokenizer.from_pretrained(
     MODEL_ID,
     trust_remote_code=True,
